@@ -1,0 +1,66 @@
+﻿<Window x:Class="Calc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calc"
+        mc:Ignorable="d"
+        Title="Калькулятор"  MinWidth="350" MinHeight="500" MaxWidth="350" MaxHeight="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Первое табло -->
+            <RowDefinition Height="Auto"/>
+            <!-- Второе табло -->
+            <RowDefinition Height="*"/>
+            <!-- Кнопки калькулятора -->
+        </Grid.RowDefinitions>
+
+        <!-- Первое табло для вывода основного результата -->
+        <TextBox x:Name="DisplayMain" Text="0" Style="{StaticResource DisplayTextBoxStyle}" Grid.Row="1" />
+
+        <!-- Второе табло для вывода дополнительной информации (например, истории или операции) -->
+        <TextBox x:Name="DisplaySecondary" Text="" Style="{StaticResource DisplayTextBoxStyle}" Grid.Row="0" />
+
+        <!-- Кнопки калькулятора, расположенные в UniformGrid -->
+        <UniformGrid Grid.Row="2" Columns="4" Rows="6" Margin="10">
+            <!-- Первая строка: операции очистки и деления (все операторы) -->
+            <Button Content="C" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" Background="#A64D07" ToolTip="Очистить"/>
+            <Button Content="CE" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" Background="#A64D07" ToolTip="Очистить последний ввод"/>
+            <Button Content="⌫" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Удалить последний символ"/>
+            <Button Content="/" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Деление"/>
+
+
+            <!-- Вторая строка: дополнительные функции (операторы) -->
+            <Button Content="√" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Квадратный корень"/>
+            <Button Content="x²" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Квадрат числа"/>
+            <Button Content="1/x" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Обратное значение"/>
+            <Button Content="*" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Умножение"/>
+
+            <!-- Третья строка: цифры и оператор -->
+            <Button Content="7" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="8" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="9" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="-" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Вычитание"/>
+
+            <!-- Четвертая строка: цифры и оператор -->
+            <Button Content="4" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="5" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="6" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="+" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Сложение"/>
+
+            <!-- Пятая строка: цифры и оператор -->
+            <Button Content="1" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="2" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="3" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="%" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" ToolTip="Процент"/>
+
+            <!-- Шестая строка: цифра, запятая, оператор и пустая кнопка -->
+            <Button Content="0" Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="," Click="Button_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Content="+/-" Click="Button_Click" Style="{StaticResource BaseButtonStyle}" ToolTip="Смена знака"/>
+            <Button Content="=" Click="Button_Click" Style="{StaticResource OperatorButtonStyle}" Background="#A64D07" ToolTip="Вычислить"/>
+            
+        </UniformGrid>
+    </Grid>
+</Window>
