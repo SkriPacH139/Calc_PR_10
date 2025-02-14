@@ -93,7 +93,7 @@ namespace Calc
                     input = "C";
                     break; // Очистка экрана
 
-                // Добавляем обработку символов `Shift` + `число` для частей выдавлены поверх
+                // Добавляем обработку символов `Shift` + `число`
                 case Key.OemMinus: 
                     input = "-"; 
                     break; // Минус
@@ -101,7 +101,7 @@ namespace Calc
                 case Key.OemPlus: 
                     input = "+"; 
                     break; // Плюс
-                           // 
+                          
                 case Key.OemQuestion: 
                     input = "/"; 
                     break; // Знак деления (для дополнительной клавиатуры)

@@ -39,7 +39,7 @@ namespace Calc
         }
 
         // Проверяем, является ли вводимое значение допустимым
-        private bool IsValidInput(string input) => double.TryParse(input, out _) || input == "," || "+-*/=CCE⌫√x²1/x%".Contains(input);
+        private bool IsValidInput(string input) => double.TryParse(input, out _) || input == "," || "+-*/=CCE⌫√x²1/x%+/-".Contains(input);
       
 
         private string HandleNumberInput(string input, string currentDisplay)
@@ -88,8 +88,7 @@ namespace Calc
                         _expression = operation + "(" + _currentValue.ToString() + ")";
                         SecondaryDisplay = _expression + " =";
                     }                   
-                    else if (_operation == "%")                    
-                        return _previousValue.ToString();
+                    
                     
                     else
                     {
@@ -130,10 +129,12 @@ namespace Calc
                 }
                 catch (DivideByZeroException)
                 {
+                    ResetCalculator();
                     return "Деление на 0 запрещено";
                 }
                 catch (ArgumentException ex)
                 {
+                    ResetCalculator();
                     return ex.Message;
                 }
             }
